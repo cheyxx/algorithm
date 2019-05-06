@@ -7,7 +7,6 @@ KMP::KMP(string match, string original)
     unsigned int length = match.length();
     m_original = original;
     m_match = match;
-    //std::shared_ptr<int> m_next(new int[10], std::default_delete<int[]>());
     std::shared_ptr<int> p(new int[length], std::default_delete<int[]>());
     m_next = p;
 }
@@ -44,7 +43,6 @@ int KMP::algorithm()
     int m_length = m_match.length();
     for (i = 0; i < m_length; i++){
         o << std::to_string(next[i]) + " ";
-        //cout << next[i] << " ";
     }
         
     cout << o.str() << endl;
