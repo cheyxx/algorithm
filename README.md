@@ -1,2 +1,2 @@
 # hello-world
-hi, it's branch.
+hi, it's master.
