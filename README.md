@@ -1,1 +1,1 @@
-algorithm and  design pattern.
+algorithm and  design pattern
