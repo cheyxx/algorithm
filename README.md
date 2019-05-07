@@ -1,2 +1,1 @@
-# hello-world
-hi, it's master, I know.
+algorithm and  design pattern.
