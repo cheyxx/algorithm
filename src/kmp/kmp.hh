@@ -1,3 +1,5 @@
+#ifndef KMP_HH_
+#define KMP_HH_
 #include <iostream>
 #include<memory>
 using namespace std;
@@ -13,5 +15,5 @@ private:
     string m_original;
     std::shared_ptr<int> m_next;
 };
-
+#endif
 

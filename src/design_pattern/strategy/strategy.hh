@@ -1,3 +1,5 @@
+#ifndef STRATEGY_HH_
+#define STRATEGY_HH_
 #include <iostream>
 #include <memory>
 using namespace std;
@@ -60,3 +62,5 @@ public:
 public:
     void useWeapon();
 };
+
+#endif
