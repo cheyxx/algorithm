@@ -6,8 +6,8 @@
 using namespace std;
 class builder {
 public:
-    virtual void build_wheel(std::string s) = 0;
-    virtual void build_body(std::string s) = 0;
+    virtual void build_wheel(std::string a_wheel) = 0;
+    virtual void build_body(std::string a_body) = 0;
 };
 
 class product
