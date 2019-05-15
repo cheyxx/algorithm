@@ -28,7 +28,5 @@ inorder_morris_traversal(struct node *root){
                 curr = curr->right;
             }
         }
-
     } 
-
 }
