@@ -1,5 +1,5 @@
-#ifndef VIRTUAL_FACTORY_HH_
-#define VIRTUAL_FACTORY_HH_
+#ifndef ABSTRACT_FACTORY_HH_
+#define ABSTRACT_FACTORY_HH_
 #include <iostream>
 #include <memory>
 namespace virtualfactory {
