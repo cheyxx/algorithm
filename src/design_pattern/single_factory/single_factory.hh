@@ -3,29 +3,27 @@
 #include <iostream>
 
 class Car {
-public:
-    virtual void product() = 0;
+ public:
+  virtual void product() = 0;
 };
 
 class BenzCar : public Car {
-public:
-    void product();
+ public:
+  void product();
 };
 
 class BMWCar : public Car {
-{
-public:
+  {
+   public:
     void product();
-};
+  };
 
-class SingleFactory
-{
-private:
+  class SingleFactory {
+   private:
     /* data */
-public:
+   public:
     SingleFactory(/* args */);
-    Car * CreateCar();
+    Car* CreateCar();
     ~SingleFactory();
-};
+  };
 #endif
-
