@@ -14,5 +14,5 @@
 #include "patterns/single_factory.h"
 #include "patterns/strategy.h"
 #include "patterns/abstract_factory.h"
-
+#include "patterns/facade.h"
 #endif  //  PATTERNS_PATTERNS_H_
