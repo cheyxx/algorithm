@@ -5,9 +5,9 @@ add_custom_target(run ALL DEPENDS ${PROJECT_NAME})
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 add_definitions("-Wall -g") 
 add_executable(${PROJECT_NAME} main.cc)
-add_subdirectory(src)
-include_directories("${PROJECT_SOURCE_DIR}/src")
-#include_directories("${PROJECT_SOURCE_DIR}/src/include")
+add_subdirectory(algorithms)
+add_subdirectory(patterns)
+
 target_link_libraries(${PROJECT_NAME} lib_patterns)
 target_link_libraries(${PROJECT_NAME} lib_algorithms)
 

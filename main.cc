@@ -1,8 +1,9 @@
+/* Copyright (c) 2019 The Design Pattern Authors. All rights reserved.
+*/
 #include <math.h>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
-#include <iostream>
 #include <iostream>  // std::cin, std::cout
 #include <iterator>  // std::istream_iterator
 #include <memory>
@@ -12,7 +13,7 @@
 #include <vector>
 #include "patterns/Singleton.h"
 #include "patterns/adapter.h"
-#include "patterns/adapter.h"
+#include "patterns/decorator.h"
 #include "patterns/bridge.h"
 #include "patterns/builder.h"
 #include "patterns/composite.h"
@@ -28,5 +29,4 @@
 #include "algorithms/reverse_polish_notation.h"
 
 int main() {
-	
 }
