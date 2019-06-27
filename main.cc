@@ -28,6 +28,7 @@
 #include "patterns/abstract_factory.h"
 #include "patterns/facade.h"
 #include "algorithms/reverse_polish_notation.h"
+#include "patterns/flyweight.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -53,7 +54,7 @@
 16、迭代子模式（Iterator）
 17、责任链模式（Chain of Responsibility）
 18、命令模式（Command）
-19、备忘录模式（Memento
+19、备忘录模式（Memento)
 20、状态模式（State）
 21、访问者模式（Visitor）
 22、中介者模式（Mediator）
@@ -63,4 +64,12 @@ int main() {
     //  外观模式（Facade）
     Facade f;
     f.operation();
+    //  享元模式（Flyweight）
+    FlyWeightFactory fly;
+    UnsharedConcreteFlyWeight w;
+    w.SetInfo("FIRST");
+    std::shared_ptr<AbstractFlyWeight> abs = fly.GetFlyWeight(w);
+    abs->operation();
+    abs = fly.GetFlyWeight(w);
+    abs->operation();
 }
