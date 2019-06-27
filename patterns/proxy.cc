@@ -3,26 +3,20 @@
 #include "patterns/proxy.h"
 #include <iostream>
 #include <memory>
-void
-SubSystemOne::operation() {
-  std::cout << "SubSystemOne::operation" << std::endl;
-}
 
 void
-SubSystemTwo::operation() {
-  std::cout << "SubSystemTwo::operation" << std::endl;
+Object::RxTxMessage() {
+  std::cout << "tx msg!" << std::endl;
+  std::cout << "rx msg!" << std::endl;
 }
 
-Facade::Facade() {
-    s1 = std::shared_ptr<SubSystemOne>(new SubSystemOne);
-    s2 = std::shared_ptr<SubSystemTwo>(new SubSystemTwo);
-}
-
-Facade::~Facade() {
+Proxy::Proxy(std::shared_ptr<AbsObject> obj) {
+  obj_ = obj;
 }
 
 void
-Facade::operation() {
-    s1->operation();
-    s2->operation();
+Proxy::RxTxMessage() {
+  std::cout << "encode msg!" << std::endl;
+  obj_->RxTxMessage();
+  std::cout << "decode msg!" << std::endl;
 }

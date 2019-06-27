@@ -5,32 +5,22 @@
 #include <iostream>
 #include <memory>
 
-class SubSystem {
+class AbsObject {
  public:
-  virtual void operation() = 0;
+  virtual void RxTxMessage() = 0;
 };
 
-class SubSystemOne : public SubSystem {
+class Object : public AbsObject {
  public:
-  void operation();
+  void RxTxMessage();
 };
 
-class SubSystemTwo : public SubSystem {
- public:
-  void operation();
-};
-
-
-
-class Facade : public SubSystem {
- private:
-  /* data */
-  std::shared_ptr<SubSystem> s1;
-  std::shared_ptr<SubSystem> s2;
- public:
- void operation();
-  Facade();
-  ~Facade();
+class Proxy : public AbsObject {
+public:
+  Proxy(std::shared_ptr<AbsObject> obj);
+  void RxTxMessage();
+private:
+  std::shared_ptr<AbsObject> obj_;
 };
 
 #endif  //  PATTERNS_PROXY_H_

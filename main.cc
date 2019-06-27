@@ -29,6 +29,7 @@
 #include "patterns/facade.h"
 #include "algorithms/reverse_polish_notation.h"
 #include "patterns/flyweight.h"
+#include "patterns/proxy.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -72,4 +73,9 @@ int main() {
     abs->operation();
     abs = fly.GetFlyWeight(w);
     abs->operation();
+    // 代理模式（Proxy）
+    std::shared_ptr<AbsObject> abs_obj = std::shared_ptr<Object>(new Object);
+    abs_obj->RxTxMessage();
+    Proxy p(abs_obj);
+    p.RxTxMessage();
 }
