@@ -8,17 +8,17 @@
 #include <memory>
 class Car {
  public:
-  virtual void product() = 0;
+  virtual void Product() = 0;
 };
 
 class BenzCar : public Car {
  public:
-  void product();
+  void Product();
 };
 
 class BMWCar : public Car {
  public:
-  void product();
+  void Product();
 };
 
 class SingleFactory {

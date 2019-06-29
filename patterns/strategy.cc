@@ -6,32 +6,32 @@
 #include <memory>
 
 void
-Character::fight() {
-std::cout << "fight" << std::endl;
+Character::Fight() {
+std::cout << "Fight" << std::endl;
 }
 
-void Queen::fight() {
+void Queen::Fight() {
   std::shared_ptr<WeaponBehavior> w;
   w = getWeapon();
-  w->useWeapon();
+  w->UseWeapon();
 }
 
-void King::fight() {
+void King::Fight() {
   std::shared_ptr<WeaponBehavior> w;
   w = getWeapon();
-  w->useWeapon();
+  w->UseWeapon();
 }
 
-void Troll::fight() {
+void Troll::Fight() {
   std::shared_ptr<WeaponBehavior> w;
   w = getWeapon();
-  w->useWeapon();
+  w->UseWeapon();
 }
 
-void Knight::fight() {
+void Knight::Fight() {
   std::shared_ptr<WeaponBehavior> w;
   w = getWeapon();
-  w->useWeapon();
+  w->UseWeapon();
 }
 
 Character::Character() {}
@@ -41,11 +41,11 @@ void Character::setWeapon(std::shared_ptr<WeaponBehavior> w) { weapon = w; }
 
 std::shared_ptr<WeaponBehavior> Character::getWeapon() { return weapon; }
 
-void KnifeBehavior::useWeapon() {
+void KnifeBehavior::UseWeapon() {
   std::cout << "use KnifeBehavior" << std::endl;
 }
-void BowAndArrowBehavior::useWeapon() {
+void BowAndArrowBehavior::UseWeapon() {
   std::cout << "use BowAndArrowBehavior" << std::endl;
 }
-void AxeBehavior::useWeapon() { std::cout << "use AxeBehavior" << std::endl; }
+void AxeBehavior::UseWeapon() { std::cout << "use AxeBehavior" << std::endl; }
 

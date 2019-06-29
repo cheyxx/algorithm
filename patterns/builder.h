@@ -8,37 +8,37 @@
 #include <vector>
 #include <string>
 
-class builder {
+class Builder {
  public:
-  virtual void build_wheel(std::string a_wheel) = 0;
-  virtual void build_body(std::string a_body) = 0;
+  virtual void BuildWheel(std::string wheel) = 0;
+  virtual void BuildBody(std::string body) = 0;
 };
 
-class product {
+class Product {
  public:
-  void add(std::string s);
-  void display();
+  void Add(std::string s);
+  void Display();
 
  private:
-  std::vector<std::string> items;
+  std::vector<std::string> items_;
 };
 
-class concrete_builder : public builder {
+class ConcreteBuilder : public Builder {
  public:
-  explicit concrete_builder(std::shared_ptr<product> instance);
-  void build_wheel(std::string a_wheel) { m_product->add(a_wheel); }
-  void build_body(std::string a_body) { m_product->add(a_body); }
-  std::shared_ptr<product> get_product() { return m_product; }
+  explicit ConcreteBuilder(std::shared_ptr<Product> instance);
+  void BuildWheel(std::string wheel) { product_->Add(wheel); }
+  void BuildBody(std::string body) { product_->Add(body); }
+  std::shared_ptr<Product> GetProduct() { return product_; }
 
  private:
-  std::shared_ptr<product> m_product;
+  std::shared_ptr<Product> product_;
 };
 
-class direct {
+class Direct {
  public:
-  void construct(std::shared_ptr<builder> builderInstance);
+  void Construct(std::shared_ptr<Builder> builderInstance);
 
  private:
-  std::shared_ptr<builder> m_builder;
+  std::shared_ptr<Builder> builder_;
 };
 #endif  //  PATTERNS_BUILDER_H_

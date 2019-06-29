@@ -2,12 +2,12 @@
 */
 
 #include "patterns/observer.h"
-void object::addObserver(const abstractObserver &o) {
+void object::addObserver(const AbstractObserver &o) {
   std::lock_guard<std::mutex> lck(_mt);
-  observers.push_back(std::shared_ptr<abstractObserver>(o.clone()));
+  observers.push_back(std::shared_ptr<AbstractObserver>(o.clone()));
 }
 
-void object::removeObserver(const abstractObserver &o) {
+void object::removeObserver(const AbstractObserver &o) {
   std::lock_guard<std::mutex> lck(_mt);
   for (observer_list::iterator it = observers.begin(); it != observers.end();
        ++it) {

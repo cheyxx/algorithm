@@ -7,12 +7,12 @@
 
 class WeaponBehavior {
  public:
-  virtual void useWeapon() = 0;
+  virtual void UseWeapon() = 0;
 };
 
 class KnifeBehavior : public WeaponBehavior {
  public:
-  void useWeapon();
+  void UseWeapon();
 };
 
 class Character {
@@ -24,36 +24,36 @@ class Character {
   ~Character();
   void setWeapon(std::shared_ptr<WeaponBehavior> w);
   std::shared_ptr<WeaponBehavior> getWeapon();
-  virtual void fight();
+  virtual void Fight();
 };
 
 class Queen : public Character {
  public:
-  void fight();
+  void Fight();
 };
 
 class King : public Character {
  public:
-  void fight();
+  void Fight();
 };
 
 class Troll : public Character {
  public:
-  void fight();
+  void Fight();
 };
 
 class Knight : public Character {
  public:
-  void fight();
+  void Fight();
 };
 
 class BowAndArrowBehavior : public WeaponBehavior {
  public:
-  void useWeapon();
+  void UseWeapon();
 };
 class AxeBehavior : public WeaponBehavior {
  public:
-  void useWeapon();
+  void UseWeapon();
 };
 
 #endif  //  PATTERNS_STRATEGY_H_

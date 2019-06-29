@@ -5,11 +5,11 @@
 #include <iostream>
 #include <memory>
 namespace virtualfactory {
-void BenzCar::product() { std::cout << "BenzCar" << std::endl; }
-void BMWCar::product() { std::cout << "BMWCar" << std::endl; }
+void BenzCar::Product() { std::cout << "BenzCar" << std::endl; }
+void BMWCar::Product() { std::cout << "BMWCar" << std::endl; }
 
-void BenzMotor::product() { std::cout << "BenzMotor" << std::endl; }
-void BMWMotor::product() { std::cout << "BMWMotor" << std::endl; }
+void BenzMotor::Product() { std::cout << "BenzMotor" << std::endl; }
+void BMWMotor::Product() { std::cout << "BMWMotor" << std::endl; }
 
 BenzFactory::BenzFactory() {}
 BenzFactory::~BenzFactory() {}

@@ -14,45 +14,45 @@ class Notification {
   void notify();
 };
 
-class abstractObserver {
+class AbstractObserver {
  public:
-  virtual bool equals(const abstractObserver &observer) const = 0;
-  virtual abstractObserver *clone() const = 0;
+  virtual bool equals(const AbstractObserver &observer) const = 0;
+  virtual AbstractObserver *clone() const = 0;
   virtual void notify(Notification::Ptr pNf) const = 0;
 };
 
 class obserable {
  private:
  public:
-  virtual void addObserver(const abstractObserver &o) = 0;
-  virtual void removeObserver(const abstractObserver &o) = 0;
+  virtual void addObserver(const AbstractObserver &o) = 0;
+  virtual void removeObserver(const AbstractObserver &o) = 0;
   virtual void notify(Notification::Ptr pNf) = 0;
 };
 
 class object : public obserable {
  public:
-  void addObserver(const abstractObserver &o);
-  void removeObserver(const abstractObserver &o);
+  void addObserver(const AbstractObserver &o);
+  void removeObserver(const AbstractObserver &o);
   void notify(Notification::Ptr pNf);
 
  private:
-  typedef std::shared_ptr<abstractObserver> abstractObserverPtr;
-  typedef std::vector<abstractObserverPtr> observer_list;
+  typedef std::shared_ptr<AbstractObserver> AbstractObserverPtr;
+  typedef std::vector<AbstractObserverPtr> observer_list;
   observer_list observers;
   std::mutex _mt;
 };
 
 template <class C, class N>
-class Observer : public abstractObserver {
+class Observer : public AbstractObserver {
  public:
   typedef std::shared_ptr<N> NotificationPtr;
-  bool equals(const abstractObserver &observer) const {
+  bool equals(const AbstractObserver &observer) const {
     const Observer *pObs = dynamic_cast<const Observer *>(&observer);
     return pObs && pObs->_pObject == _pObject && pObs->_method == _method;
   }
   typedef void (C::*Callback)(NotificationPtr);
   Observer(C &object, Callback method) : _pObject(&object), _method(method) {}
-  abstractObserver *clone() const { return new Observer(*this); }
+  AbstractObserver *clone() const { return new Observer(*this); }
 
   void notify(Notification::Ptr pNf) const {
     if (_pObject) {

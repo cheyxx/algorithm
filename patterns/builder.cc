@@ -6,18 +6,18 @@
 #include <memory>
 #include <string>
 
-void product::add(std::string s) { items.push_back(s); }
+void Product::Add(std::string s) { items_.push_back(s); }
 
-void product::display() {
-  for (auto &v : items) std::cout << v << std::endl;
+void Product::Display() {
+  for (auto &v : items_) std::cout << v << std::endl;
 }
 
-concrete_builder::concrete_builder(std::shared_ptr<product> instance) {
-  m_product = instance;
+ConcreteBuilder::ConcreteBuilder(std::shared_ptr<Product> instance) {
+  product_ = instance;
 }
 
-void direct::construct(std::shared_ptr<builder> builderInstance) {
-  m_builder = builderInstance;
-  m_builder->build_wheel("wheel");
-  m_builder->build_body("body");
+void Direct::Construct(std::shared_ptr<Builder> builderInstance) {
+  builder_ = builderInstance;
+  builder_->BuildWheel("wheel");
+  builder_->BuildBody("body");
 }
