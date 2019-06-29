@@ -30,6 +30,8 @@
 #include "algorithms/reverse_polish_notation.h"
 #include "patterns/flyweight.h"
 #include "patterns/proxy.h"
+#include "patterns/chain_of_responsibility.h"
+#include "patterns/command.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -78,4 +80,18 @@ int main() {
     abs_obj->RxTxMessage();
     Proxy p(abs_obj);
     p.RxTxMessage();
+    // 责任链模式（Chain of Responsibility）
+    Chain::Consumer c("Van");
+    std::shared_ptr<Chain::AbstractChain> car = std::shared_ptr<Chain::Car>(new Chain::Car);
+    std::shared_ptr<Chain::AbstractChain> van = std::shared_ptr<Chain::Van>(new Chain::Van);
+    car->SetNext(van);
+    car->Product(c);
+    // 命令模式（Command）
+    std::shared_ptr<cmd::Receiver> receiver = std::shared_ptr<cmd::Receiver>(new cmd::Receiver);
+    std::shared_ptr<cmd::Command> command = std::shared_ptr<cmd::ConcreteCommand>(new cmd::ConcreteCommand(receiver) );
+    cmd::Invoker inv;
+    inv.SetCommand(command);
+    inv.RunCommand();
+
+
 }
