@@ -6,17 +6,17 @@
 #include <iostream>
 #include <memory>
 
-void Sony::on() { std::cout << "sony tv on" << std::endl; }
+void Sony::On() { std::cout << "sony tv on" << std::endl; }
 
-void Sony::off() { std::cout << "sony tv off" << std::endl; }
+void Sony::Off() { std::cout << "sony tv off" << std::endl; }
 
-void Sony::tuneChannel() { std::cout << "sony tv tuneChannel" << std::endl; }
+void Sony::TuneChannel() { std::cout << "sony tv tuneChannel" << std::endl; }
 
-void RCA::on() { std::cout << "RCA tv on" << std::endl; }
+void RCA::On() { std::cout << "RCA tv on" << std::endl; }
 
-void RCA::off() { std::cout << "RCA tv off" << std::endl; }
+void RCA::Off() { std::cout << "RCA tv off" << std::endl; }
 
-void RCA::tuneChannel() { std::cout << "RCA tv tuneChannel" << std::endl; }
+void RCA::TuneChannel() { std::cout << "RCA tv tuneChannel" << std::endl; }
 
 ConcreteRemoteLaser::ConcreteRemoteLaser() {
 
@@ -24,22 +24,22 @@ ConcreteRemoteLaser::ConcreteRemoteLaser() {
 
 void 
 ConcreteRemoteLaser::SetImpl(std::shared_ptr<TV> impl) {
-  _impl = impl;
+  impl_ = impl;
 }
 
-void ConcreteRemoteLaser::on() {
+void ConcreteRemoteLaser::On() {
   std::cout << "ConcreteRemoteLaser on" << std::endl;
-  _impl->on();
+  impl_->On();
 }
 
-void ConcreteRemoteLaser::off() {
+void ConcreteRemoteLaser::Off() {
   std::cout << "ConcreteRemoteLaser off" << std::endl;
-  _impl->off();
+  impl_->Off();
 }
 
-void ConcreteRemoteLaser::setChannel() {
+void ConcreteRemoteLaser::SetChannel() {
   std::cout << "ConcreteRemoteLaser setChannel" << std::endl;
-  _impl->tuneChannel();
+  impl_->TuneChannel();
 }
 
 ConcreteRemoteInfrareRay::ConcreteRemoteInfrareRay() {
@@ -48,20 +48,20 @@ ConcreteRemoteInfrareRay::ConcreteRemoteInfrareRay() {
 
 void 
 ConcreteRemoteInfrareRay::SetImpl(std::shared_ptr<TV> impl) {
-  _impl = impl;
+  impl_ = impl;
 }
 
-void ConcreteRemoteInfrareRay::on() {
+void ConcreteRemoteInfrareRay::On() {
   std::cout << "ConcreteRemoteInfrareRay on" << std::endl;
-  _impl->on();
+  impl_->On();
 }
 
-void ConcreteRemoteInfrareRay::off() {
+void ConcreteRemoteInfrareRay::Off() {
   std::cout << "ConcreteRemoteInfrareRay off" << std::endl;
-  _impl->on();
+  impl_->On();
 }
 
-void ConcreteRemoteInfrareRay::setChannel() {
+void ConcreteRemoteInfrareRay::SetChannel() {
   std::cout << "ConcreteRemoteInfrareRay setChannel" << std::endl;
-  _impl->tuneChannel();
+  impl_->TuneChannel();
 }

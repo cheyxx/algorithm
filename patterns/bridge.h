@@ -10,53 +10,53 @@
 
 class TV {
  public:
-  virtual void on() = 0;
-  virtual void off() = 0;
-  virtual void tuneChannel() = 0;
+  virtual void On() = 0;
+  virtual void Off() = 0;
+  virtual void TuneChannel() = 0;
 };
 
 class Sony : public TV {
  public:
-  void on();
-  void off();
-  void tuneChannel();
+  void On();
+  void Off();
+  void TuneChannel();
 };
 
 class RCA : public TV {
  public:
-  void on();
-  void off();
-  void tuneChannel();
+  void On();
+  void Off();
+  void TuneChannel();
 };
 
 class RemoteControl {
  public:
-  virtual void on() = 0;
-  virtual void off() = 0;
-  virtual void setChannel() = 0;
+  virtual void On() = 0;
+  virtual void Off() = 0;
+  virtual void SetChannel() = 0;
 };
 
 class ConcreteRemoteLaser : public RemoteControl {
  public:
   ConcreteRemoteLaser();
   void SetImpl(std::shared_ptr<TV> impl);
-  void on();
-  void off();
-  void setChannel();
+  void On();
+  void Off();
+  void SetChannel();
 
  private:
-  std::shared_ptr<TV> _impl;
+  std::shared_ptr<TV> impl_;
 };
 
 class ConcreteRemoteInfrareRay : public RemoteControl {
  public:
   ConcreteRemoteInfrareRay();
   void SetImpl(std::shared_ptr<TV> impl);
-  void on();
-  void off();
-  void setChannel();
+  void On();
+  void Off();
+  void SetChannel();
 
  private:
-  std::shared_ptr<TV> _impl;
+  std::shared_ptr<TV> impl_;
 };
 #endif  //  PATTERNS_BRIDGE_H_
