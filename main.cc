@@ -11,6 +11,7 @@
 #include <stack>
 #include <string>
 #include <vector>
+#include <iomanip>
 #include "patterns/Singleton.h"
 #include "patterns/adapter.h"
 #include "patterns/decorator.h"
@@ -32,6 +33,8 @@
 #include "patterns/proxy.h"
 #include "patterns/chain_of_responsibility.h"
 #include "patterns/command.h"
+
+#include "patterns/null.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -92,6 +95,13 @@ int main() {
     cmd::Invoker inv;
     inv.SetCommand(command);
     inv.RunCommand();
-
+    // Null模式（Null）
+    CustomerFactory factory;
+    std::shared_ptr<AbstractCustomer> customer = factory.GetCustomer("tom");
+    std::string tom = customer->GetName();
+    std::cout << "Null " << customer->isNull() << " name " << tom << std::endl;
+    customer = factory.GetCustomer("joy");
+    std::string joy = customer->GetName();
+    std::cout << "Null " << customer->isNull() << " name " << joy << std::endl;
 
 }

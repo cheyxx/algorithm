@@ -6,6 +6,8 @@
 #include <iostream>
 #include <memory>
 
+// pimpl 模式（Private Implementation） 类似于桥接模式，力图把类的具体实现细节对用户隐藏起来，以达到类之间的最小耦合关系
+
 class TV {
  public:
   virtual void on() = 0;
@@ -36,7 +38,8 @@ class RemoteControl {
 
 class ConcreteRemoteLaser : public RemoteControl {
  public:
-  explicit ConcreteRemoteLaser(std::shared_ptr<TV> impl);
+  ConcreteRemoteLaser();
+  void SetImpl(std::shared_ptr<TV> impl);
   void on();
   void off();
   void setChannel();
@@ -47,7 +50,8 @@ class ConcreteRemoteLaser : public RemoteControl {
 
 class ConcreteRemoteInfrareRay : public RemoteControl {
  public:
-  explicit ConcreteRemoteInfrareRay(std::shared_ptr<TV> impl);
+  ConcreteRemoteInfrareRay();
+  void SetImpl(std::shared_ptr<TV> impl);
   void on();
   void off();
   void setChannel();

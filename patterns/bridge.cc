@@ -18,7 +18,12 @@ void RCA::off() { std::cout << "RCA tv off" << std::endl; }
 
 void RCA::tuneChannel() { std::cout << "RCA tv tuneChannel" << std::endl; }
 
-ConcreteRemoteLaser::ConcreteRemoteLaser(std::shared_ptr<TV> impl) {
+ConcreteRemoteLaser::ConcreteRemoteLaser() {
+
+}
+
+void 
+ConcreteRemoteLaser::SetImpl(std::shared_ptr<TV> impl) {
   _impl = impl;
 }
 
@@ -29,7 +34,7 @@ void ConcreteRemoteLaser::on() {
 
 void ConcreteRemoteLaser::off() {
   std::cout << "ConcreteRemoteLaser off" << std::endl;
-  _impl->on();
+  _impl->off();
 }
 
 void ConcreteRemoteLaser::setChannel() {
@@ -37,7 +42,12 @@ void ConcreteRemoteLaser::setChannel() {
   _impl->tuneChannel();
 }
 
-ConcreteRemoteInfrareRay::ConcreteRemoteInfrareRay(std::shared_ptr<TV> impl) {
+ConcreteRemoteInfrareRay::ConcreteRemoteInfrareRay() {
+
+}
+
+void 
+ConcreteRemoteInfrareRay::SetImpl(std::shared_ptr<TV> impl) {
   _impl = impl;
 }
 
