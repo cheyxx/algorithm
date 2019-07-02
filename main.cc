@@ -35,6 +35,7 @@
 #include "patterns/command.h"
 
 #include "patterns/null.h"
+#include "patterns/iterator.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -103,5 +104,15 @@ int main() {
     customer = factory.GetCustomer("joy");
     std::string joy = customer->GetName();
     std::cout << "Null " << customer->isNull() << " name " << joy << std::endl;
+
+    //  迭代子模式（Iterator）
+    PanCakeHouseMenu pancake;
+    pancake.AddItem("Blueberry pancakes", "pancakes", true, 3.49);
+    pancake.AddItem("pancakes", "cakes", true, 2.56);
+    std::shared_ptr<Iterator> iter = pancake.CreateIterator();
+    while(iter->hasNext()) {
+        std::shared_ptr<MenuItem> menuitem = iter->Next();
+        std::cout << menuitem->getName() << std::endl;
+    }
 
 }
