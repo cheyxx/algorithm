@@ -39,6 +39,7 @@
 #include "patterns/mediator.h"
 #include "patterns/memento.h"
 #include "patterns/visitor.h"
+#include "patterns/template_method.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -181,4 +182,10 @@ int main() {
     Boss * b = dynamic_cast<Boss *> (boss);
     b->getTotalIncome();
     b->getTotalConsume();
+
+    std::shared_ptr<temp::Person> person  = std::shared_ptr<temp::Man>(new temp::Man());
+    person->Activity();
+    person = std::shared_ptr<temp::Woman>(new temp::Woman());
+    person->Activity();
+    
 }

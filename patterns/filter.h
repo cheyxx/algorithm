@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+
 class rule {
  public:
   virtual void action(std::string a) = 0;

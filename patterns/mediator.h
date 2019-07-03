@@ -7,7 +7,6 @@
 #include <vector>
 #include <string>
 
-
 class Mediator;
 class Person
 {

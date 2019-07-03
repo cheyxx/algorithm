@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+
 void rule_impl::action(std::string a) { _s = a; }
 
 std::string rule_impl::get_rule() { return _s; }

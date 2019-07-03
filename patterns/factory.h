@@ -4,6 +4,7 @@
 #define PATTERNS_FACTORY_H_
 #include <iostream>
 #include <memory>
+
 namespace factory {
 class Car {
  public:
