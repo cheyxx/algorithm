@@ -33,7 +33,7 @@
 #include "patterns/proxy.h"
 #include "patterns/chain_of_responsibility.h"
 #include "patterns/command.h"
-
+#include "patterns/state.h"
 #include "patterns/null.h"
 #include "patterns/iterator.h"
 #if 0
@@ -114,5 +114,28 @@ int main() {
         std::shared_ptr<MenuItem> menuitem = iter->Next();
         std::cout << menuitem->getName() << std::endl;
     }
+    // 状态模式（State）
+    std::shared_ptr<Context> context  = std::shared_ptr<Context>(new Context(3));
 
+    context->InsertQuarter();
+    context->TurnCrank();
+    context->Dispense();
+    context->EjectQuarter();
+    context->Dispense();
+    context->InsertQuarter();
+    context->InsertQuarter();
+    context->TurnCrank();
+    context->Dispense();
+    
+    std::cout << "count " << context->GetCount() << std::endl;
+    context->InsertQuarter();
+    context->EjectQuarter();
+    context->TurnCrank();
+    context->Dispense();
+    std::cout << "count " << context->GetCount() << std::endl;
+    context->InsertQuarter();
+    context->TurnCrank();
+    context->Dispense();
+    std::cout << "count " << context->GetCount() << std::endl;
+    context->InsertQuarter();
 }
