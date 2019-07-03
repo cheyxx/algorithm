@@ -36,6 +36,9 @@
 #include "patterns/state.h"
 #include "patterns/null.h"
 #include "patterns/iterator.h"
+#include "patterns/mediator.h"
+#include "patterns/memento.h"
+#include "patterns/visitor.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -138,4 +141,44 @@ int main() {
     context->Dispense();
     std::cout << "count " << context->GetCount() << std::endl;
     context->InsertQuarter();
+    
+    //  中介者模式（Mediator）
+    Mediator *mediator = new HouseMediator();
+    Person *person1 = new Renter();
+    Person *person2 = new Landlord();
+    mediator->SetRenter(person1);
+    mediator->SetLandlord(person2);
+    person1->SetMediator(mediator);
+    person2->SetMediator(mediator);
+    std::string rent_str = "I want to rent a house \n";
+    std::string out_str = "I want to rent out a house \n";
+    person1->SendMessage(rent_str);
+    person2->SendMessage(out_str);
+    
+    // 备忘录模式（Memento)
+    Originator* original_ptr = new Originator("role", 100);
+    std::cout<< "orginal state: "<< std::endl;
+    original_ptr->Show();
+    CareTaker* caretaker_ptr = new CareTaker();
+    caretaker_ptr->AddMemento(original_ptr->SaveState());
+    original_ptr->SetVitality(50);
+    std::cout<< "fight state: "<< std::endl;
+    original_ptr->Show();
+    original_ptr->RecoverState(caretaker_ptr->GetMemento(0));
+    std::cout<< "file state: "<< std::endl;
+    original_ptr->Show();
+    
+    //  访问者模式（Visitor）
+    AccountBook *accountBook_ptr = new AccountBook();
+    accountBook_ptr->addBill(new IncomeBill(10000, "sale entertainment"));
+    accountBook_ptr->addBill(new IncomeBill(12000, "sale advertisement"));
+    accountBook_ptr->addBill(new ConsumeBill(1000, "salary"));
+    accountBook_ptr->addBill(new ConsumeBill(2000, "materials"));
+    AccountBookViewer *boss = new Boss();
+    AccountBookViewer *cpa = new CPA();
+    accountBook_ptr->show(cpa);
+    accountBook_ptr->show(boss);
+    Boss * b = dynamic_cast<Boss *> (boss);
+    b->getTotalIncome();
+    b->getTotalConsume();
 }
