@@ -40,6 +40,7 @@
 #include "patterns/memento.h"
 #include "patterns/visitor.h"
 #include "patterns/template_method.h"
+#include "patterns/interpreter.h"
 #if 0
 目录：（点击进入相应页面）
 概述、六大原则
@@ -187,5 +188,15 @@ int main() {
     person->Activity();
     person = std::shared_ptr<temp::Woman>(new temp::Woman());
     person->Activity();
+
+    //  解释器模式（Interpreter）
+    std::string instruction = "LOOP 4 PRINT USER SPACE SPACE PRINT CHE BREAK END PRINT PASSWARD SPACE SPACE PRINT ROOT";
+    interpreter::Context *cxt = new interpreter::Context(instruction);
+
+    interpreter::Node *node = new interpreter::ExpressionNode();
+    node->Interpret(cxt);
+    std::cout << instruction << std::endl;
+    node->Execute();
+    std::cout << std::endl;
     
 }

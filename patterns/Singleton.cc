@@ -22,7 +22,7 @@ public:
     }
 
 protected:
-    Singleton()
+    Singleton() // 构造函数声明为 protected， 只有子类才能构造。 
     {
         if( 0 != instance )
             throw std::exception;
